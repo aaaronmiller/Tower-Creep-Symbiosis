@@ -1,0 +1,62 @@
+# Godot 4
+.godot/
+*.uid
+*.import
+export_presets.cfg
+*.translation
+
+# Godot export binaries
+builds/
+*.exe
+*.x86_64
+*.arm64
+*.app/
+*.dmg
+*.pkg
+
+# Bun / Node
+node_modules/
+.bun/
+bun.lockb
+
+# Python (future Pydantic harness)
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# SQLite runtime databases (generated at runtime)
+data/genome.db
+data/metrics.db
+data/genome.db-wal
+data/metrics.db-wal
+data/genome.db-shm
+data/metrics.db-shm
+
+# Agent runtime files
+data/agent_results.json
+data/agent-harness.json
+/tmp/tcs-agent-*/
+
+# Environment & secrets
+.env
+.env.local
+*.env
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test results (generated, not source)
+specs/*/test-results-*.md
