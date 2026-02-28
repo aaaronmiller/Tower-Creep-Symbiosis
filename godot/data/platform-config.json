@@ -1,0 +1,20 @@
+{
+  "STANDARD": {
+    "fps_target": 30,
+    "max_concurrent_agents": 2,
+    "game_memory_ceiling_gb": 4.0,
+    "agent_memory_ceiling_gb": 2.0,
+    "renderer_hint": "opengl3",
+    "throttle_min_tick_ms": 33.0,
+    "throttle_cpu_target": 0.60
+  },
+  "ENHANCED": {
+    "fps_target": 60,
+    "max_concurrent_agents": 4,
+    "game_memory_ceiling_gb": 8.0,
+    "agent_memory_ceiling_gb": 4.0,
+    "renderer_hint": "vulkan",
+    "throttle_min_tick_ms": 16.0,
+    "throttle_cpu_target": 0.70
+  }
+}
