@@ -1,0 +1,24 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Tower-Creep Symbiosis"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.3")
+config/icon="res://icon.svg"
+
+[autoload]
+HardwareProfile="*res://autoloads/HardwareProfile.gd"
+
+ThrottleController="*res://autoloads/ThrottleController.gd"
+GameState="*res://autoloads/GameState.gd"
+GenomeRegistry="*res://autoloads/GenomeRegistry.gd"
+AgentBridge="*res://autoloads/AgentBridge.gd"

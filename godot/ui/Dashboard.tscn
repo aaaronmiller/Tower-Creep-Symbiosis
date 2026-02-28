@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dummy"]
+
+[node name="Dashboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_1")
+
+[node name="TierLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 26.0
+grow_horizontal = 0
+
+[node name="MemoryBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 30.0
+offset_bottom = 57.0
+grow_horizontal = 0
+
+[sub_resource type="GDScript" id="GDScript_1"]
+script/source = "extends Control
+
+@onready var tier_label = $TierLabel
+@onready var memory_bar = $MemoryBar
+
+func _ready():
+	if not HardwareProfile.is_ready:
+		await HardwareProfile.profile_ready
+	var tier_name = \"STANDARD\" if HardwareProfile.performance_tier == HardwareProfile.PerformanceTier.STANDARD else \"ENHANCED\"
+	tier_label.text = \"Tier: \" + tier_name
+	memory_bar.max_value = HardwareProfile.game_memory_ceiling_bytes
+
+	var timer = Timer.new()
+	timer.wait_time = 0.5
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
+	timer.start()
+
+func _on_timer_timeout():
+	var phys = OS.get_memory_info()[\"physical\"]
+	var free = OS.get_memory_info()[\"free\"]
+	var used = clamp(phys - free, 0, HardwareProfile.game_memory_ceiling_bytes)
+	memory_bar.value = used
+
+	if HardwareProfile.get_memory_pressure() > 0.8:
+		memory_bar.modulate = Color(1, 0, 0)
+	else:
+		memory_bar.modulate = Color(1, 1, 1)
+"
