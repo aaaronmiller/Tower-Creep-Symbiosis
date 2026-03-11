@@ -124,31 +124,24 @@ find_feature_dir_by_prefix() {
     fi
 }
 
-get_feature_paths() {
-    local repo_root=$(get_repo_root)
-    local current_branch=$(get_current_branch)
-    local has_git_repo="false"
+load_feature_paths() {
+    REPO_ROOT=$(get_repo_root)
+    CURRENT_BRANCH=$(get_current_branch)
+    HAS_GIT="false"
 
     if has_git; then
-        has_git_repo="true"
+        HAS_GIT="true"
     fi
 
     # Use prefix-based lookup to support multiple branches per spec
-    local feature_dir=$(find_feature_dir_by_prefix "$repo_root" "$current_branch")
-
-    cat <<EOF
-REPO_ROOT='$repo_root'
-CURRENT_BRANCH='$current_branch'
-HAS_GIT='$has_git_repo'
-FEATURE_DIR='$feature_dir'
-FEATURE_SPEC='$feature_dir/spec.md'
-IMPL_PLAN='$feature_dir/plan.md'
-TASKS='$feature_dir/tasks.md'
-RESEARCH='$feature_dir/research.md'
-DATA_MODEL='$feature_dir/data-model.md'
-QUICKSTART='$feature_dir/quickstart.md'
-CONTRACTS_DIR='$feature_dir/contracts'
-EOF
+    FEATURE_DIR=$(find_feature_dir_by_prefix "$REPO_ROOT" "$CURRENT_BRANCH")
+    FEATURE_SPEC="$FEATURE_DIR/spec.md"
+    IMPL_PLAN="$FEATURE_DIR/plan.md"
+    TASKS="$FEATURE_DIR/tasks.md"
+    RESEARCH="$FEATURE_DIR/research.md"
+    DATA_MODEL="$FEATURE_DIR/data-model.md"
+    QUICKSTART="$FEATURE_DIR/quickstart.md"
+    CONTRACTS_DIR="$FEATURE_DIR/contracts"
 }
 
 check_file() { [[ -f "$1" ]] && echo "  ✓ $2" || echo "  ✗ $2"; }
