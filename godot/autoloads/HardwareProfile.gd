@@ -86,11 +86,13 @@ func _on_memory_check() -> void:
 	elif free < 1073741824:
 		low_memory_warning.emit(free)
 
-func get_free_ram_bytes() -> int:
-	return OS.get_memory_info()["free"]
+func get_free_ram_bytes(info: Dictionary = {}) -> int:
+	if info.is_empty():
+		return OS.get_memory_info()["free"]
+	return info.get("free", 0)
 
-func get_memory_pressure() -> float:
-	return clampf(1.0 - float(get_free_ram_bytes()) / float(total_ram_bytes), 0.0, 1.0)
+func get_memory_pressure(info: Dictionary = {}) -> float:
+	return clampf(1.0 - float(get_free_ram_bytes(info)) / float(total_ram_bytes), 0.0, 1.0)
 
 func override_tier(tier: PerformanceTier) -> void:
 	performance_tier = tier
