@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0r8fv4j5xwqk"]
+
+[ext_resource type="Script" path="res://ui/Dashboard.gd" id="1_dashboard"]
+
+[node name="Dashboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dashboard")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 400.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "GAME DASHBOARD"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="WaveInfo" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/WaveInfo"]
+layout_mode = 2
+text = "Wave:"
+
+[node name="Value" type="Label" parent="Panel/VBox/WaveInfo"]
+layout_mode = 2
+text = "0"
+
+[node name="EnemyInfo" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/EnemyInfo"]
+layout_mode = 2
+text = "Enemies:"
+
+[node name="Value" type="Label" parent="Panel/VBox/EnemyInfo"]
+layout_mode = 2
+text = "0"
+
+[node name="TowerInfo" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/TowerInfo"]
+layout_mode = 2
+text = "Towers:"
+
+[node name="Value" type="Label" parent="Panel/VBox/TowerInfo"]
+layout_mode = 2
+text = "0"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="BalanceHeader" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Balance Modifiers"
+
+[node name="CreepMod" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/CreepMod"]
+layout_mode = 2
+text = "Creep HP:"
+
+[node name="Value" type="Label" parent="Panel/VBox/CreepMod"]
+layout_mode = 2
+text = "100%"
+
+[node name="TowerMod" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/TowerMod"]
+layout_mode = 2
+text = "Tower DMG:"
+
+[node name="Value" type="Label" parent="Panel/VBox/TowerMod"]
+layout_mode = 2
+text = "100%"
+
+[node name="GoldMod" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/GoldMod"]
+layout_mode = 2
+text = "Gold:"
+
+[node name="Value" type="Label" parent="Panel/VBox/GoldMod"]
+layout_mode = 2
+text = "100%"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="AgentStatusHeader" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "Agent Bridge"
+
+[node name="AgentStatus" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="StatusDot" type="Label" parent="Panel/VBox/AgentStatus"]
+layout_mode = 2
+text = "●"
+
+[node name="StatusLabel" type="Label" parent="Panel/VBox/AgentStatus"]
+layout_mode = 2
+text = "Disconnected"

@@ -60,3 +60,6 @@ desktop.ini
 
 # Test results (generated, not source)
 specs/*/test-results-*.md
+
+# agent tooling state, not source
+.auto-claude/
