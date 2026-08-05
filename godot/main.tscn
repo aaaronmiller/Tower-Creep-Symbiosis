@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8xvmgf2qxkpr"]
+
+[ext_resource type="Script" path="res://godot/main.gd" id="1_main"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.078, 0.078, 0.094, 1)

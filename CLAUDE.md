@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2026-02-28
 
 ## Active Technologies
+- GDScript 4.3 (game logic, tests), TypeScript with Bun 1.x (agent orchestration) + Godot 4.3 engine (Forward+ renderer, Compatibility fallback); (002-game-foundation)
+- `data/genome.db` (SQLite WAL — gene pool); `data/metrics.db` (SQLite WAL — (002-game-foundation)
 
 - **Game**: GDScript 4.3 (Godot 4.3, Vulkan Forward+ / Compatibility OpenGL renderer)
 - **Orchestrator**: TypeScript with Bun 1.x (`agents/orchestrator.ts`)
@@ -64,6 +66,7 @@ godot4 --headless -s addons/gut/gut_cmdln.gd
   orchestration only
 
 ## Recent Changes
+- 002-game-foundation: Added GDScript 4.3 (game logic, tests), TypeScript with Bun 1.x (agent orchestration) + Godot 4.3 engine (Forward+ renderer, Compatibility fallback);
 
 - 001-cross-platform-support: Added HardwareProfile autoload, PerformanceTier system,
   platform-config.json, per-tier memory budgets, Compatibility renderer support for Intel

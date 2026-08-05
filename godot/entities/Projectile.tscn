@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp3kz8n94jqr"]
+
+[ext_resource type="Script" path="res://godot/entities/Projectile.gd" id="1_projectile"]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_projectile")
